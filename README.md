@@ -1,7 +1,7 @@
 # team-f-app
 
 [![Coverage Status](https://coveralls.io/repos/github/anuragmaher/temp/badge.svg?branch=master)](https://coveralls.io/github/anuragmaher/temp?branch=master)
-[![Build Status](https://travis-ci.org/dev-0x1/https://travis-ci.org/dev-0x1/team-f-app.svg?branch=master)](https://travis-ci.org/dev-0x1/team-f-app)
+[![Build Status](https://travis-ci.org/dev-0x1/team-f-app.svg?branch=master)](https://travis-ci.org/dev-0x1/team-f-app)
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that github app for jira
 
