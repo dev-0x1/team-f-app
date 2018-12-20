@@ -10,7 +10,7 @@ module.exports = app => {
         'pull_request.opened',
         'pull_request.edited',
         'pull_request.synchronize'
-    ], require('./lib/validate-description'));
+    ], require('./lib/handle-pull-request-change'));
 
 
   // For more information on building apps:
