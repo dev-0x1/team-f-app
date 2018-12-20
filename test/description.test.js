@@ -10,26 +10,22 @@ describe('handlePullRequestChange', () => {
     expect(typeof handlePullRequestChange).toBe('function')
   })
 
-  test('sets `pending` status if PR has invalid desc', async () => {
+  test('sets `pending` status if PR is invalid', async () => {
     const context = buildContext()
-    context.payload.pull_request.title = 'WIP: do a thing'
     const expectedBody = {
       state: 'pending',
       target_url: 'https://github.com/anuragmaher',
-      description: 'WIP present check',
+      description: 'check',
       context: 'Pull Request Tests'
     }
 
     const mock = nock('https://api.github.com')
-      .get('/repos/sally/project-x/pulls/123/commits')
-      .reply(200, unsemanticCommits())
       .post('/repos/sally/project-x/statuses/abcdefg', expectedBody)
       .reply(200)
 
     await handlePullRequestChange(context)
     expect(mock.isDone()).toBe(false)
   })
-
 })
 
 function buildContext (overrides) {
@@ -48,7 +44,7 @@ function buildContext (overrides) {
       pull_request: {
         number: 123,
         title: 'do a thing',
-        description: 'do a thing;=.. desc',
+        body: 'do a thing',
         head: {
           sha: 'abcdefg'
         }
